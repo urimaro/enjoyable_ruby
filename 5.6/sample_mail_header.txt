@@ -1,0 +1,61 @@
+Delivered-To: goh@example.com
+Received: by 2002:aa7:d595:0:0:0:0:0 with SMTP id r21csp632992edq;
+        Sat, 26 Oct 2019 18:04:51 -0700 (PDT)
+X-Google-Smtp-Source: APXvYqwWAKMKJhbPgBwoyc5g7NjhcEIrDEaxLM6U1v82xUs3BhcNHuBqxL5VBEfOGFJn7ZWIEmKr
+X-Received: by 2002:a62:3602:: with SMTP id d2mr13246022pfa.177.1572138291202;
+        Sat, 26 Oct 2019 18:04:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1572138291; cv=none;
+        d=google.com; s=arc-20160816;
+        b=NXuTnpCwTV+m7/MVYwQOk9pav6J9yZYUs0z818ktjpRZSgFa7nEQuEYCyxa1V8UDNM
+         3HFOoTfuX9nq1VM9mpXutlJUvRGS9KNNSn/YEZrcRGUjR6q26HnIQdSKE+4Ar4DcFz7h
+         qoOAH+TUy1RgMXGZFjQykv3lNC2gJKjF/gCIsxr9PEAQarvDTh6wb1cNUH+o/+ail3Ec
+         ZaU6WXYJTLONJ+i47ZyvHLBdquORzuJ6ZHJwg4Y+yMxobr3nzcpsgQP1EqQsH95OGrPT
+         CbiC/HcB4faGxNzED2mMuUOs4hG+rTw9Lf+S8KVLhSznH6g4FcjOYsRibwOf4HZlt1WF
+         vHqg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:date:bounces-to:mime-version:subject:message-id:to:from
+         :dkim-signature:dkim-signature;
+        bh=+zl1pPHamStFIixG50N0lp2ps4TYrbJJRcPNeE6V77k=;
+        b=l9m+XqP8f/vSkQJPzzr9PV9fyXH8qarmjR5g+dcHx+jk7Q98h1sPBgAkHDvtus45lk
+         yoPMEChfUpxkHlOpFcCnQTPfIX/X2gz/Sp0oZRQDtVTDILv+fJBdPqwzpH5rkey66lx1
+         Et9A437lz9JUYsvn057FLmZqYNzhRYPiu2O0PgKq47FlZOT7qYKhxKtZrSuMn5V5pyvY
+         /3K6zHzf7wG60eyUg5Gw7Dkw93nBTJ9HJulO3EmgzKG314Mciy1jcowODr0RS2B0B/Di
+         XtQITWvrDyaoovqjUI6IZ5h+cPHdf4vXTgcKkHVuJZJOJBjH+CpYqo5h4VPqA1sdLrGI
+         97sA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@amazon.co.jp header.s=55v6dsnbko3asrylf5mgtqv5mgll5any header.b=c9AQSOaS;
+       dkim=pass header.i=@amazonses.com header.s=gdwg2y3kokkkj5a55z2ilkup5wp5hhxx header.b=GJipiLUk;
+       spf=pass (google.com: domain of 2019102701045000e70c10de634d489f4a84d673e0p0fe-ct87ll10lvw87@bounces.amazon.co.jp designates 54.240.24.162 as permitted sender) smtp.mailfrom=2019102701045000e70c10de634d489f4a84d673e0p0fe-CT87LL10LVW87@bounces.amazon.co.jp;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.co.jp
+Return-Path: <2019102701045000e70c10de634d489f4a84d673e0p0fe-CT87LL10LVW87@bounces.amazon.co.jp>
+Received: from a24-162.smtp-out.us-west-2.amazonses.com (a24-162.smtp-out.us-west-2.amazonses.com. [54.240.24.162])
+        by mx.google.com with ESMTPS id y22si7764577pfc.181.2019.10.26.18.04.50
+        for <goh@example.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+        Sat, 26 Oct 2019 18:04:51 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 2019102701045000e70c10de634d489f4a84d673e0p0fe-ct87ll10lvw87@bounces.amazon.co.jp designates 54.240.24.162 as permitted sender) client-ip=54.240.24.162;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@amazon.co.jp header.s=55v6dsnbko3asrylf5mgtqv5mgll5any header.b=c9AQSOaS;
+       dkim=pass header.i=@amazonses.com header.s=gdwg2y3kokkkj5a55z2ilkup5wp5hhxx header.b=GJipiLUk;
+       spf=pass (google.com: domain of 2019102701045000e70c10de634d489f4a84d673e0p0fe-ct87ll10lvw87@bounces.amazon.co.jp designates 54.240.24.162 as permitted sender) smtp.mailfrom=2019102701045000e70c10de634d489f4a84d673e0p0fe-CT87LL10LVW87@bounces.amazon.co.jp;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.co.jp
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple; s=55v6dsnbko3asrylf5mgtqv5mgll5any; d=amazon.co.jp; t=1572138290; h=From:To:Message-ID:Subject:MIME-Version:Content-Type:Date; bh=TffAavHpmSbAF7PygrkYuzyomRwnBPnymZiLYKSLEU4=; b=c9AQSOaSWoffBc9x03FWIHF9ZBJ9PqJGwBfxhRQdtKNsP/nPPIz8nTnvMD/POBZ7 bpw9qR+VD6X5H8vczf11OwlKCHjMWcqvFOSMGPwax7cj1SzCCRb8vd29ie3OknTCaLu TXItgen9cN18RqvYl4LKfoz5Ch/GALyl+Cb4oNvE=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple; s=gdwg2y3kokkkj5a55z2ilkup5wp5hhxx; d=amazonses.com; t=1572138290; h=From:To:Message-ID:Subject:MIME-Version:Content-Type:Date:Feedback-ID; bh=TffAavHpmSbAF7PygrkYuzyomRwnBPnymZiLYKSLEU4=; b=GJipiLUkz6c5N8Vxsv7BVD0o76i9S2+9PrTVe2ryv//NptEEmn1v6Iwi/x5jkmZZ yWMHydqNB4FZk+BRR43hhOtr+k0WO7svEnZnB/6e2CDYMfbNgfN4igHyTgJ5HTTURhJ 6cwmb2uvz6lmqqluTKLCr3aiHWYRnCrzsmRPpKYs=
+From: "Amazon.co.jp" <store-news@amazon.co.jp>
+To: goh@example.com
+Message-ID: <0101016e0abe8de7-940627c3-6858-4405-abb2-0f8ab3bdd9d8-000000@us-west-2.amazonses.com>
+Subject: "ゼロから作るDeep Learning..."
+  もっと見る
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="----=_Part_3415408_1630648018.1572138290629"
+X-AMAZON-MAIL-RELAY-TYPE: notification
+Bounces-to: 2019102701045000e70c10de634d489f4a84d673e0p0fe-CT87LL10LVW87@bounces.amazon.co.jp
+X-AMAZON-METADATA: CA=CT87LL10LVW87-CU=A7ZK4WVPYUDIM
+X-Original-MessageID: <urn.rtn.msg.2019102701045000e70c10de634d489f4a84d673e0p0fe@1572138290635.rtn-fe-mktng-m4l1b-c55a394e.us-west-2.amazon.com>
+Date: Sun, 27 Oct 2019 01:04:50 +0000
+X-SES-Outgoing: 2019.10.27-54.240.24.162
+Feedback-ID: 1.us-west-2.Ci45k5OkUuH90u7dO0Ory1StkcbFm601BtN95yGGkr4=:AmazonSES
+
+------=_Part_3415408_1630648018.1572138290629
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
