@@ -25,6 +25,11 @@ class Receipt
     end
     puts "合計金額: #{calc}円"
   end
+
+  def replace_name
+    name = "new name"
+    self.name = name
+  end
 end
 
 r = Receipt.new("ストアA")
