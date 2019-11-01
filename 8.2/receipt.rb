@@ -1,4 +1,8 @@
 class Receipt
+  def self.create_receipt_xyz
+    self.new("ストアXYZ")
+  end
+
   attr_accessor :name
 
   def initialize(name)
@@ -30,10 +34,6 @@ class Receipt
     name = "new name"
     self.name = name
   end
-end
-
-def Receipt.create_receipt_xyz
-  self.new("ストアXYZ")
 end
 
 r = Receipt.new("ストアA")
