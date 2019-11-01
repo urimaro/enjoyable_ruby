@@ -4,6 +4,14 @@ class Receipt
     @lines = []
   end
 
+  def name
+    @name
+  end
+
+  def name=(name)
+    @name = name
+  end
+
   def lines=(lines)
     @lines = lines
   end
