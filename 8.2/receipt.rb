@@ -1,4 +1,6 @@
 class Receipt
+  VERSION = "1.0.0"
+
   def self.create_receipt_xyz
     self.new("ストアXYZ")
   end
