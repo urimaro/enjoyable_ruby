@@ -1,15 +1,9 @@
 class Receipt
+  attr_accessor :name
+
   def initialize(name)
     @name = name
     @lines = []
-  end
-
-  def name
-    @name
-  end
-
-  def name=(name)
-    @name = name
   end
 
   def lines=(lines)
