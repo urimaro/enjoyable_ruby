@@ -32,6 +32,12 @@ class Receipt
   end
 end
 
+class << Receipt
+  def create_receipt_xyz
+    self.new("ストアXYZ")
+  end
+end
+
 r = Receipt.new("ストアA")
 r.lines = [{name: "卵", price: 200, num: 1},
            {name: "大根", price: 100, num: 2}]
