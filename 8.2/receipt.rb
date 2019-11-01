@@ -19,7 +19,7 @@ class Receipt
   end
 
   def output
-    puts "レシート #{@name}"
+    puts "レシート #{name}"
     @lines.each do |line|
       puts "#{line[:name]} #{line[:price]}円 x #{line[:num]}"
     end
