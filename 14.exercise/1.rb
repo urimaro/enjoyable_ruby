@@ -1,2 +1,2 @@
-words = "Ruby is an object oriented programming language".split(" ")
+words = "Ruby is an object oriented programming language".split
 p words
