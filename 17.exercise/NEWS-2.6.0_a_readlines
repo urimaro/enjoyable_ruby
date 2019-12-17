@@ -1,0 +1,11 @@
+(e.g. <tt>https://bugs.ruby-lang.org/issues/$FEATURE_OR_BUG_NUMBER</tt>)
+sufficient information, see the ChangeLog file or Redmine
+information is supplied with.  For a full list of changes with all
+Note that each entry is kept so brief that no reason behind or reference
+
+releases except for bug fixes.
+This document is a list of user visible feature changes made between
+
+= NEWS for Ruby 2.6.0
+
+# -*- rdoc -*-
